@@ -44,6 +44,7 @@
                 android:width="30pt"
                 android:height="30pt"
                 android:backgroundTint="@color/blue"
+                android:onClick="clickNumber"
                 android:text="+/-" />
 
             <Button
@@ -53,6 +54,7 @@
                 android:width="30pt"
                 android:height="30pt"
                 android:backgroundTint="@color/blue"
+                android:onClick="operation"
                 android:text="/" />
 
             <Button
@@ -62,6 +64,7 @@
                 android:width="30pt"
                 android:height="30pt"
                 android:backgroundTint="@color/blue"
+                android:onClick="operation"
                 android:text="*" />
         </TableRow>
 
@@ -150,6 +153,7 @@
                 android:width="30pt"
                 android:height="30pt"
                 android:backgroundTint="@color/blue"
+                android:onClick="operation"
                 android:text="+" />
         </TableRow>
 
@@ -194,6 +198,7 @@
                 android:width="30pt"
                 android:height="30pt"
                 android:backgroundTint="@color/blue"
+                android:onClick="operation"
                 android:text="-" />
         </TableRow>
     </TableLayout>
@@ -223,6 +228,7 @@
                 android:width="30pt"
                 android:height="30pt"
                 android:backgroundTint="@color/blue"
+                android:onClick="clickNumber"
                 android:text="." />
 
             <Button
