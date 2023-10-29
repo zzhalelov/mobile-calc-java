@@ -8,8 +8,7 @@ import android.view.View;
 import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
-
-    String opereator;
+    String operator;
     String oldNumber;
     Boolean isNew = true;
     EditText editText;
@@ -21,7 +20,6 @@ public class MainActivity extends AppCompatActivity {
 
         editText = findViewById(R.id.editText);
     }
-
 
     public void clickNumber(View view) {
         if (isNew) {
@@ -61,13 +59,38 @@ public class MainActivity extends AppCompatActivity {
         isNew = true;
         oldNumber = editText.getText().toString();
         if (view.getId() == R.id.buMinus) {
-            opereator = "-";
+            operator = "-";
         } else if (view.getId() == R.id.buPlus) {
-            opereator = "+";
+            operator = "+";
         } else if (view.getId() == R.id.buDivide) {
-            opereator = "/";
+            operator = "/";
         } else if (view.getId() == R.id.buMultiply) {
-            opereator = "*";
+            operator = "*";
         }
+    }
+
+    public void clickEqual(View view) {
+        String newNumber = editText.getText().toString();
+        Double result = 0.0;
+        switch (operator) {
+            case "-":
+                result = Double.parseDouble(oldNumber) - Double.parseDouble(newNumber);
+                break;
+            case "+":
+                result = Double.parseDouble(oldNumber) + Double.parseDouble(newNumber);
+                break;
+            case "*":
+                result = Double.parseDouble(oldNumber) * Double.parseDouble(newNumber);
+                break;
+            case "/":
+                result = Double.parseDouble(oldNumber) / Double.parseDouble(newNumber);
+                break;
+        }
+        editText.setText(result + "");
+    }
+
+    public void acClick(View view) {
+        editText.setText("0");
+        isNew = true;
     }
 }
