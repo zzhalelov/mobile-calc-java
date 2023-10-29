@@ -4,6 +4,7 @@ package com.example.mobilecalculator;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 
@@ -48,7 +49,10 @@ public class MainActivity extends AppCompatActivity {
         } else if (view.getId() == R.id.bu9) {
             number = number + "9";
         } else if (view.getId() == R.id.buDot) {
-            number = number + ".";
+            if (dotIsPresent(number)) {
+            } else {
+                number = number + ".";
+            }
         } else if (view.getId() == R.id.buPlusMinus) {
             number = "-" + number;
         }
@@ -92,5 +96,13 @@ public class MainActivity extends AppCompatActivity {
     public void acClick(View view) {
         editText.setText("0");
         isNew = true;
+    }
+
+    public boolean dotIsPresent(String number) {
+        if (number.indexOf(".") == -1) {
+            return false;
+        } else {
+            return true;
+        }
     }
 }
