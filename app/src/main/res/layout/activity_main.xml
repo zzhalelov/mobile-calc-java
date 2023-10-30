@@ -104,6 +104,7 @@
 
             <Button
                 android:id="@+id/buPercent"
+                android:onClick="clickPercent"
                 android:layout_marginRight="1pt"
                 android:layout_weight="1"
                 android:width="30pt"
