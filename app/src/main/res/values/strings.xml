@@ -1,4 +1,4 @@
 <resources>
     <string name="app_name">Mobile Calculator</string>
-    <string name="toast_message">На ноль делить нельзя</string>
+    <string name="toast_message">You can\'t divide by zero</string>
 </resources>
