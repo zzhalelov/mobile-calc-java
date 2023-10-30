@@ -2,11 +2,13 @@ package com.example.mobilecalculator;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
+    MediaPlayer mediaPlayer;
     String operator = "";
     String oldNumber;
     Boolean isNew = true;
@@ -16,11 +18,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         editText = findViewById(R.id.editText);
+        mediaPlayer = MediaPlayer.create(this, R.raw.click_sound);
     }
 
     public void clickNumber(View view) {
+        mediaPlayer.start();
         if (isNew) {
             editText.setText("");
             isNew = false;
@@ -127,6 +130,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void operation(View view) {
+        mediaPlayer.start();
         isNew = true;
         oldNumber = editText.getText().toString();
         if (view.getId() == R.id.buMinus) {
@@ -141,6 +145,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void clickEqual(View view) {
+        mediaPlayer.start();
         String newNumber = editText.getText().toString();
         Double result = 0.0;
         switch (operator) {
@@ -161,6 +166,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void acClick(View view) {
+        mediaPlayer.start();
         editText.setText("0");
         isNew = true;
     }
@@ -174,6 +180,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void clickPercent(View view) {
+        mediaPlayer.start();
         if (operator == "") {
             String number = editText.getText().toString();
             double temp = Double.parseDouble(number) / 100;
