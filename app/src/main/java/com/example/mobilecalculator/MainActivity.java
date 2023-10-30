@@ -6,6 +6,7 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     MediaPlayer mediaPlayer;
@@ -82,8 +83,7 @@ public class MainActivity extends AppCompatActivity {
             number = number + "9";
         } else if (view.getId() == R.id.buDot) {
             if (dotIsPresent(number)) {
-            }
-            if (zeroIsFirst(number)) {
+            } else if (zeroIsFirst(number)) {
                 number = "0.";
             } else {
                 number = number + ".";
@@ -148,21 +148,25 @@ public class MainActivity extends AppCompatActivity {
         mediaPlayer.start();
         String newNumber = editText.getText().toString();
         Double result = 0.0;
-        switch (operator) {
-            case "-":
-                result = Double.parseDouble(oldNumber) - Double.parseDouble(newNumber);
-                break;
-            case "+":
-                result = Double.parseDouble(oldNumber) + Double.parseDouble(newNumber);
-                break;
-            case "*":
-                result = Double.parseDouble(oldNumber) * Double.parseDouble(newNumber);
-                break;
-            case "/":
-                result = Double.parseDouble(oldNumber) / Double.parseDouble(newNumber);
-                break;
+        if (newNumber.equals("0") && operator == "/" || newNumber.equals("") && operator == "/") {
+            Toast.makeText(MainActivity.this, R.string.toast_message, Toast.LENGTH_SHORT).show();
+        } else {
+            switch (operator) {
+                case "-":
+                    result = Double.parseDouble(oldNumber) - Double.parseDouble(newNumber);
+                    break;
+                case "+":
+                    result = Double.parseDouble(oldNumber) + Double.parseDouble(newNumber);
+                    break;
+                case "*":
+                    result = Double.parseDouble(oldNumber) * Double.parseDouble(newNumber);
+                    break;
+                case "/":
+                    result = Double.parseDouble(oldNumber) / Double.parseDouble(newNumber);
+                    break;
+            }
+            editText.setText(result + "");
         }
-        editText.setText(result + "");
     }
 
     public void acClick(View view) {
