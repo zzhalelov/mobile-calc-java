@@ -1,10 +1,8 @@
 package com.example.mobilecalculator;
 
-
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 
@@ -81,6 +79,9 @@ public class MainActivity extends AppCompatActivity {
             number = number + "9";
         } else if (view.getId() == R.id.buDot) {
             if (dotIsPresent(number)) {
+            }
+            if (zeroIsFirst(number)) {
+                number = "0.";
             } else {
                 number = number + ".";
             }
