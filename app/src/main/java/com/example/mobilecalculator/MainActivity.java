@@ -29,24 +29,55 @@ public class MainActivity extends AppCompatActivity {
         }
         String number = editText.getText().toString();
         if (view.getId() == R.id.bu0) {
-            number = number + "0";
+            if (zeroIsFirst(number) && number.length() == 1) {
+                number = "0";
+            } else {
+                number = number + "0";
+            }
         } else if (view.getId() == R.id.bu1) {
+            if (zeroIsFirst(number) && number.length() == 1) {
+                number = number.substring(1);
+            }
             number = number + "1";
         } else if (view.getId() == R.id.bu2) {
+            if (zeroIsFirst(number) && number.length() == 1) {
+                number = number.substring(1);
+            }
             number = number + "2";
         } else if (view.getId() == R.id.bu3) {
+            if (zeroIsFirst(number) && number.length() == 1) {
+                number = number.substring(1);
+            }
             number = number + "3";
         } else if (view.getId() == R.id.bu4) {
+            if (zeroIsFirst(number) && number.length() == 1) {
+                number = number.substring(1);
+            }
             number = number + "4";
         } else if (view.getId() == R.id.bu5) {
+            if (zeroIsFirst(number) && number.length() == 1) {
+                number = number.substring(1);
+            }
             number = number + "5";
         } else if (view.getId() == R.id.bu6) {
+            if (zeroIsFirst(number) && number.length() == 1) {
+                number = number.substring(1);
+            }
             number = number + "6";
         } else if (view.getId() == R.id.bu7) {
+            if (zeroIsFirst(number) && number.length() == 1) {
+                number = number.substring(1);
+            }
             number = number + "7";
         } else if (view.getId() == R.id.bu8) {
+            if (zeroIsFirst(number) && number.length() == 1) {
+                number = number.substring(1);
+            }
             number = number + "8";
         } else if (view.getId() == R.id.bu9) {
+            if (zeroIsFirst(number) && number.length() == 1) {
+                number = number.substring(1);
+            }
             number = number + "9";
         } else if (view.getId() == R.id.buDot) {
             if (dotIsPresent(number)) {
@@ -65,6 +96,17 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         editText.setText(number);
+    }
+
+    private boolean zeroIsFirst(String number) {
+        if (number.equals("")) {
+            return true;
+        }
+        if (number.charAt(0) == '0') {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     private boolean numberIsZero(String number) {
