@@ -54,13 +54,25 @@ public class MainActivity extends AppCompatActivity {
                 number = number + ".";
             }
         } else if (view.getId() == R.id.buPlusMinus) {
-            if (minusIsPresent(number)) {
-                number = number.substring(1);
+            if (numberIsZero(number)) {
+                number = "0";
             } else {
-                number = "-" + number;
+                if (minusIsPresent(number)) {
+                    number = number.substring(1);
+                } else {
+                    number = "-" + number;
+                }
             }
         }
         editText.setText(number);
+    }
+
+    private boolean numberIsZero(String number) {
+        if (number.equals("0") || number.equals("")) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public boolean minusIsPresent(String number) {
