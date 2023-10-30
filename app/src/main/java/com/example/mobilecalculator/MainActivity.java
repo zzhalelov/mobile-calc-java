@@ -54,9 +54,21 @@ public class MainActivity extends AppCompatActivity {
                 number = number + ".";
             }
         } else if (view.getId() == R.id.buPlusMinus) {
-            number = "-" + number;
+            if (minusIsPresent(number)) {
+                number = number.substring(1);
+            } else {
+                number = "-" + number;
+            }
         }
         editText.setText(number);
+    }
+
+    public boolean minusIsPresent(String number) {
+        if (number.charAt(0) == '-') {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public void operation(View view) {
